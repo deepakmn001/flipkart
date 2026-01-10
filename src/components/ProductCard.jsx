@@ -8,21 +8,37 @@ const ProductCard = ({ product }) => {
   return (
     <div
       onClick={() => navigate(`/product/${product.id}`)}
-      className="bg-white border border-gray-200"
+      className="
+        bg-white
+        border border-[#f0f0f0]
+        box-border
+        cursor-pointer
+        overflow-hidden
+        relative
+        text-center
+        select-none
+
+        w-[202px]
+        h-[341px]
+
+        p-4
+        font-['Roboto','Helvetica','Arial',sans-serif]
+      "
     >
-      {/* IMAGE */}
-      <div className="aspect-[3/4] flex items-center justify-center p-2">
+      {/* 🖼 IMAGE */}
+      <div className="flex items-center justify-center h-[150px]">
         <img
           src={product.image}
           alt={product.name}
-          className="object-contain max-h-[140px]"
+          className="max-h-[140px] object-contain"
         />
       </div>
 
-      {/* DETAILS */}
-      <div className="px-2 pb-2 space-y-[2px]">
+      {/* 📦 DETAILS */}
+      <div className="space-y-[4px] text-left">
+
         {/* NAME */}
-        <p className="text-[12px] text-[#2874f0] leading-snug line-clamp-2">
+        <p className="text-[12px] leading-[16px] text-[#2874f0] line-clamp-2">
           {product.name}
         </p>
 
@@ -37,12 +53,12 @@ const ProductCard = ({ product }) => {
         </div>
 
         {/* PRICE */}
-        <div className="flex items-center gap-1">
-          <span className="text-[15px] font-bold">
+        <div className="flex items-center gap-2">
+          <span className="text-[15px] font-bold text-[#212121]">
             ₹{product.discountedPrice}
           </span>
 
-          <span className="text-[11px] bg-blue-600 text-white px-1 rounded">
+          <span className="text-[10px] bg-[#2874f0] text-white px-1 rounded">
             Assured
           </span>
         </div>
