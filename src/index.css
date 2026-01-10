@@ -131,3 +131,26 @@ code {
   outline: none;
   border-color: #2874f0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
