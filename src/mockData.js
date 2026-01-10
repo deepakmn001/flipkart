@@ -19,7 +19,15 @@ export const products = [
     id: 2,
     name: "Bajaj Rex Mixer Grinder 750W 4 Mixer Jars|Mixie for Kitchen with Nutri-Pro Feature Titan Motor-Heavy Duty Grinding Adjustable Speed Control",
     image: "/products/mixer.png",
-
+images: [  
+  "/products/mixer.png",                   // detail page slider
+    "/products/mixer1.jpeg",
+      "/products/mixer2.jpeg",
+  
+        "/products/mixer3.jpeg",
+  
+  
+  ],
     originalPrice: 2000,
     discountedPrice: 399,
     discount: 80,
@@ -46,6 +54,14 @@ images: [
     id: 4,
     name: "Prestige 5 Litres Svachh Nakshatra Plus Induction Base Inner Lid Hard Anodised Pressure Handi |Black | Deep Lid | Anti-Bulge Base | Sturdy Handles",
     image: "https://m.media-amazon.com/images/I/713Kl1I0CyL._SL1500_.jpg",
+
+    images: [        
+       "https://m.media-amazon.com/images/I/713Kl1I0CyL._SL1500_.jpg",             // detail page slider
+    "/products/coker (1).jpg",
+     "/products/coker (5).jpg",  
+       "/products/coker (4).jpg",
+  ],
+
     originalPrice: 4999,
     discountedPrice: 299,
     discount: 94,
@@ -56,6 +72,13 @@ images: [
     id: 5,
     name: "vivo V50 5G (Rose Red, 8GB RAM, 256GB Storage)",
     image: "https://m.media-amazon.com/images/I/71m7OmKyA5L._SL1500_.jpg",
+
+    images: [     
+      "https://m.media-amazon.com/images/I/71m7OmKyA5L._SL1500_.jpg",                // detail page slider
+    "/products/vivo.jpg",
+  "/products/vivo1.jpg",
+    "/products/vivo2.jpg",
+  ],
     originalPrice: 36990,
     discountedPrice: 899,
     discount: 98,
@@ -66,6 +89,15 @@ images: [
     id: 6,
     name: "Panasonic 25L Solo Microwave Oven (NN-ST310QBFG, Black, 85 Auto Cook Menus)",
     image: "https://m.media-amazon.com/images/I/712wBdtn5AL._SL1500_.jpg",
+
+    images: [    
+       "https://m.media-amazon.com/images/I/712wBdtn5AL._SL1500_.jpg",
+                 // detail page slider
+    "/products/pana.jpg",
+      "/products/pana1.jpg",
+        "/products/pana2.jpg",
+          "/products/pana3.jpg",
+  ],
     originalPrice: 8999,
     discountedPrice: 499,
     discount: 94,
@@ -76,6 +108,14 @@ images: [
     id: 7,
     name: "Philips Viva Collection HD4928/01 2100-Watt Induction Cooktop, Soft Touch Button with Crystal Glass (Black)",
     image: "https://m.media-amazon.com/images/I/715L3WOq4JL._SL1500_.jpg",
+
+    images: [                     // detail page slider
+    "/products/viva.jpg",
+"/products/viva1.jpg",
+"/products/viva2.jpg",
+"/products/viva3.jpg",
+
+  ],
     originalPrice: 5939,
     discountedPrice: 449,
     discount: 92,
@@ -86,6 +126,14 @@ images: [
     id: 8,
     name: "Havells Instanio 3L Instant Water Heater(Geyser)| Temp. Sensing LED Indicator| Rust & Shock Proof Body| ISI Marked Warranty: 5 year on Inner Tank| High Rise Compatible (White Blue)",
     image: "https://m.media-amazon.com/images/I/51+Bh5W2orL._SL1500_.jpg",
+    images: [   
+       "https://m.media-amazon.com/images/I/51+Bh5W2orL._SL1500_.jpg",                  // detail page slider
+  "/products/hav.jpg",
+  "/products/hav1.jpg",
+  "/products/hav2.jpg",
+  "/products/hav3.jpg",
+],
+
     originalPrice: 6999,
     discountedPrice: 499,
     discount: 93,
@@ -96,6 +144,14 @@ images: [
     id: 9,
     name: "Orient Electric Areva Portable Room Heater | 2000W | Two Heating Modes | Advanced Overheat Protection | Horizontal & Vertical Mount | 1-year replacement warranty by Orient | White",
     image: "https://m.media-amazon.com/images/I/71QfC+NELFL._SL1500_.jpg",
+    images: [ 
+       "https://m.media-amazon.com/images/I/71QfC+NELFL._SL1500_.jpg",                    // detail page slider
+  "/products/or.jpg",
+  "/products/or1.jpg",
+  "/products/or2.jpg",
+  "/products/or3.jpg",
+],
+
     originalPrice: 4500,
     discountedPrice: 478,
     discount: 89,
@@ -146,6 +202,13 @@ images: [
     id: 14,
     name: "Honeywell Air Purifier for Home & Office, 3-in-1, Pre, H13 HEPA, Activated Carbon, Removes 99.99% Pollutants, Allergens, Pet Danger, Smoke, Dust & Pollens - Air touch V1",
     image: "https://m.media-amazon.com/images/I/71ipnrfS-1L._SL1500_.jpg",
+     images: [                     // detail page slider
+    "/products/honey.jpg",
+    "/products/honey2.jpg",
+    "/products/honey3.jpg",
+    "/products/honey4.jpg",
+ "https://m.media-amazon.com/images/I/71ipnrfS-1L._SL1500_.jpg",
+  ],
     originalPrice: 9999,
     discountedPrice: 425,
     discount: 96,
