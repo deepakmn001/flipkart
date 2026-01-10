@@ -44,11 +44,12 @@ const DealsSection = () => {
       </div>
 
       {/* 🔥 PRODUCTS — EXACT FLIPKART STYLE */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 px-2 py-3">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      <div className="grid grid-cols-2 gap-[6px] px-[6px] py-2">
+  {products.map((product) => (
+    <ProductCard key={product.id} product={product} />
+  ))}
+</div>
+
     </section>
   );
 };

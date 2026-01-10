@@ -5,66 +5,63 @@ import { useNavigate } from "react-router-dom";
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
-  const handleNavigate = () => {
-    if (!product?.id) return;
-    navigate(`/product/${product.id}`);
-  };
-
   return (
     <div
-      onClick={handleNavigate}
-      className="
-        bg-white border border-gray-200 rounded
-        cursor-pointer overflow-hidden
-        active:scale-[0.98] transition
-        sm:hover:-translate-y-1 sm:hover:shadow-lg
-      "
+      onClick={() => navigate(`/product/${product.id}`)}
+      className="bg-white border border-gray-200"
     >
       {/* IMAGE */}
-      <div className="aspect-square bg-gray-50 flex items-center justify-center p-2">
+      <div className="aspect-[3/4] flex items-center justify-center p-2">
         <img
-          src={product?.image}
-          alt={product?.name}
-          loading="lazy"
-          className="max-h-full object-contain"
+          src={product.image}
+          alt={product.name}
+          className="object-contain max-h-[140px]"
         />
       </div>
 
       {/* DETAILS */}
-      <div className="px-3 py-2 space-y-1.5">
+      <div className="px-2 pb-2 space-y-[2px]">
         {/* NAME */}
-        <h3 className="text-xs text-gray-800 line-clamp-2 leading-snug">
-          {product?.name}
-        </h3>
+        <p className="text-[12px] text-[#2874f0] leading-snug line-clamp-2">
+          {product.name}
+        </p>
 
-        {/* PRICE ROW */}
-        <div className="flex items-center gap-2">
-          <span className="text-sm font-bold text-gray-900">
-            ₹{product?.discountedPrice}
+        {/* DISCOUNT */}
+        <div className="flex items-center gap-1 text-[11px]">
+          <span className="text-green-600 font-semibold">
+            {product.discount}% off
           </span>
-          <span className="text-xs text-gray-400 line-through">
-            ₹{product?.originalPrice}
+          <span className="text-gray-400 line-through">
+            ₹{product.originalPrice}
           </span>
-          <span className="text-xs font-semibold text-green-600">
-            {product?.discount}% off
+        </div>
+
+        {/* PRICE */}
+        <div className="flex items-center gap-1">
+          <span className="text-[15px] font-bold">
+            ₹{product.discountedPrice}
+          </span>
+
+          <span className="text-[11px] bg-blue-600 text-white px-1 rounded">
+            Assured
           </span>
         </div>
 
         {/* RATING */}
-        <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1 bg-green-600 text-white px-1.5 py-[1px] rounded text-[10px] font-semibold">
-            {product?.rating}
+        <div className="flex items-center gap-1">
+          <span className="flex items-center gap-[2px] bg-green-600 text-white text-[10px] px-1 rounded">
+            {product.rating}
             <Star size={10} fill="white" />
-          </div>
+          </span>
 
           <span className="text-[10px] text-gray-500">
-            ({product?.ratingCount?.toLocaleString()})
+            {product.ratingCount} Ratings
           </span>
         </div>
 
         {/* DELIVERY */}
-        <p className="text-[10px] text-gray-600 font-medium">
-          Free Delivery
+        <p className="text-[10px] text-gray-600">
+          Free Delivery in Two Days
         </p>
       </div>
     </div>
