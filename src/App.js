@@ -17,28 +17,28 @@ function App() {
     <div className="App min-h-screen bg-gray-100 flex flex-col">
       {/* COMMON HEADER */}
       <Header />
-      <CategoryBar />
 
       {/* ROUTES */}
       <Routes>
-        {/* HOME PAGE */}
+        {/* 🏠 HOME PAGE */}
         <Route
           path="/"
           element={
             <>
+              <CategoryBar />   {/* ✅ SIRF HOME */}
               <HeroBanner />
               <DealsSection />
             </>
           }
         />
 
-        {/* PRODUCT DETAIL PAGE */}
+        {/* ❌ NO CATEGORY BAR BELOW */}
         <Route path="/product/:id" element={<ProductDetail />} />
-<Route path="/address" element={<Address />} />
-<Route path="/payment" element={<Payment />} />
-<Route path="/order-summary" element={<OrderSummary />} />
+        <Route path="/address" element={<Address />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/order-summary" element={<OrderSummary />} />
+      </Routes>
 
- </Routes>
       {/* COMMON FOOTER */}
       <Footer />
     </div>
