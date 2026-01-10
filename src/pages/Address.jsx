@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { ChevronLeft } from "lucide-react";
 
 const Address = () => {
   const navigate = useNavigate();
@@ -16,30 +17,40 @@ const Address = () => {
     area: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
-  };
 
   if (!product) {
     return <div className="p-6 text-center">No product selected</div>;
   }
 
   return (
-    <div className="min-h-screen bg-[#f5f7fa] flex flex-col">
-      {/* HEADER */}
-      <div className="bg-white px-4 py-3 border-b">
-        <h1 className="text-lg font-semibold">Add delivery address</h1>
+    <div className="min-h-screen bg-[#f1f3f6] pb-[80px]">
+      {/* 🔵 HEADER */}
+      <div className="bg-white border-b px-3 py-3 flex items-center gap-2">
+        <button onClick={() => navigate(-1)}>
+          <ChevronLeft />
+        </button>
+        <h1 className="text-sm font-semibold">Add delivery address</h1>
+      </div>
 
-        {/* STEPS */}
-        <div className="flex gap-6 text-xs text-gray-500 mt-2">
-          <span className="text-[#2874f0] font-semibold">1 Address</span>
-          <span>2 Order Summary</span>
-          <span>3 Payment</span>
+      {/* 🔢 STEPS */}
+      <div className="bg-white px-4 py-3 border-b">
+        <div className="flex items-center justify-between text-xs">
+          <span className="text-[#2874f0] font-semibold">
+            <span className="step active">1</span> Address
+          </span>
+          <span>
+            <span className="step">2</span> Order Summary
+          </span>
+          <span>
+            <span className="step">3</span> Payment
+          </span>
         </div>
       </div>
 
-      {/* FORM */}
-      <div className="flex-1 px-4 py-4 space-y-4">
+      {/* 📝 FORM */}
+      <div className="px-4 py-4 space-y-4">
         <input
           name="name"
           placeholder="Full Name *"
@@ -97,16 +108,15 @@ const Address = () => {
         />
       </div>
 
-      {/* FIXED BOTTOM BUTTON */}
-      <div className="bg-white p-4 border-t">
+      {/* 🟠 FIXED SAVE BUTTON */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4">
         <button
           onClick={() =>
-      navigate("/order-summary", {
-  state: { product, address: form },
-})
+            navigate("/order-summary", {
+              state: { product, address: form },
+            })
           }
-          
-          className="w-full bg-[#fb641b] text-white py-3 rounded font-semibold text-base"
+          className="w-full bg-[#fb641b] text-white py-3 rounded-sm font-semibold text-base active:scale-95"
         >
           Save Address
         </button>

@@ -3,6 +3,12 @@ export const products = [
     id: 1,
     name: "MILTON Euroline Combo Set Go Electro Stainless Steel Electric Kettle, 1.5 Litres, Silver And Flip Lid Thermosteel Hot Or Cold Stainless Steel Water Bottle With Jacket, 1 Litre, Silver, 1500 Watts",
     image: "https://m.media-amazon.com/images/I/71TKAx1ePFL._SL1500_.jpg",
+    images: [                     // detail page slider
+    "/products/milton1.png",
+    "/products/milton2.png",
+    "/products/milton3.png",
+    "https://m.media-amazon.com/images/I/71TKAx1ePFL._SL1500_.jpg",
+  ],
     originalPrice: 2999,
     discountedPrice: 399,
     discount: 87,
@@ -12,7 +18,8 @@ export const products = [
   {
     id: 2,
     name: "Bajaj Rex Mixer Grinder 750W 4 Mixer Jars|Mixie for Kitchen with Nutri-Pro Feature Titan Motor-Heavy Duty Grinding Adjustable Speed Control",
-    image: "https://rukminim2.flixcart.com/image/416/416/xif0q/mixer-grinder-juicer/h/m/w/-original-imah27qqvfpupktz.jpeg",
+    image: "/products/mixer.png",
+
     originalPrice: 2000,
     discountedPrice: 399,
     discount: 80,
@@ -22,7 +29,13 @@ export const products = [
   {
     id: 3,
     name: "SAMSUNG 80 cm (32 Inch) HD Ready LED Smart Tizen TV with with Bezel-Free Design",
-    image: "https://rukminim2.flixcart.com/image/416/416/xif0q/television/g/l/j/-original-imah3868qdatnqg8.jpeg",
+    image: "/products/tv.png",
+images: [ 
+   "/products/tv.png",
+    "/products/tv1.jpeg",
+    "/products/tv2.jpeg",
+    
+  ],
     originalPrice: 18990,
     discountedPrice: 497,
     discount: 97,
@@ -152,7 +165,8 @@ export const products = [
   {
     id: 16,
     name: "Havells Dry Iron Dazzle 1100 Watts, Iron Press, Greblon Non Sick Soleplate with German Technology, Shock Proof Body, Aerodynamic Design, 360° Swivel Cord, 2 Year Manufacturer Warranty (Black)",
-    image: "https://rukminim2.flixcart.com/image/416/416/kbpeQ280/iron/d/p/g/havells-dazzle-havells-original-imagnx2dhpy6e6ub.jpeg",
+    image: "/products/iron.png",
+
     originalPrice: 1999,
     discountedPrice: 289,
     discount: 86,

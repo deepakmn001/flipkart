@@ -154,3 +154,38 @@ code {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+
+
+.checkout-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  background: #fff;
+  outline: none;
+}
+
+.checkout-input:focus {
+  border-color: #2874f0;
+}
+
+/* STEP CIRCLES */
+.step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  font-size: 11px;
+  margin-right: 4px;
+}
+
+.step.active {
+  background: #2874f0;
+  color: white;
+  border-color: #2874f0;
+}

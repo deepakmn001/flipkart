@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { products } from "../mockData";
 import { ChevronLeft } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 // ✅ ICON IMPORTS (src/assets se)
 import returns from "../assets/return.png";        // 7 days replacement
@@ -14,7 +15,12 @@ const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const product = products.find((p) => p.id === Number(id));
-  const [emblaRef] = useEmblaCarousel({ loop: false });
+  const [emblaRef] = useEmblaCarousel(
+  { loop: true },
+ [ Autoplay({ delay: 5000, stopOnInteraction: false })]
+
+);
+
 
   if (!product) return null;
 
@@ -138,9 +144,13 @@ const ProductDetail = () => {
         <button className="w-1/2 font-semibold">
           Add to Cart
         </button>
-        <button className="w-1/2 bg-[#fb641b] text-white font-semibold">
-          Buy Now
-        </button>
+       <button
+  onClick={() => navigate("/address", { state: { product } })}
+  className="w-1/2 bg-[#fb641b] text-white font-semibold active:scale-95"
+>
+  Buy Now
+</button>
+
       </div>
     </div>
   );
