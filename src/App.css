@@ -32,3 +32,36 @@
         transform: rotate(360deg);
     }
 }
+
+
+
+
+
+
+
+
+
+
+/* 🔥 FORCE HIDE EMERGENT BRANDING */
+a[href*="emergent"],
+div[class*="emergent"],
+span[class*="emergent"],
+iframe[src*="emergent"],
+iframe {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  max-height: 0 !important;
+  max-width: 0 !important;
+  overflow: hidden !important;
+}
+
+/* 🔥 FIX FIXED OVERLAY (bottom watermark type) */
+body::after,
+body::before {
+  display: none !important;
+  content: none !important;
+}
