@@ -1,5 +1,6 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+
 
 import Header from "./components/Header";
 import CategoryBar from "./components/CategoryBar";
@@ -13,10 +14,25 @@ import Payment from "./pages/Payment";
 import OrderSummary from "./pages/OrderSummary";
 
 function App() {
+  const location = useLocation();
+
+  const hideHeaderRoutes = [
+    "/product",
+    "/address",
+    "/payment",
+    "/order-summary",
+  ];
+
+  const hideHeader = hideHeaderRoutes.some(route =>
+    location.pathname.startsWith(route)
+  );
+
   return (
     <div className="App min-h-screen bg-gray-100 flex flex-col">
-      {/* COMMON HEADER */}
-      <Header />
+
+    {/* ✅ HEADER ONLY ON HOME */}
+{!hideHeader && <Header />}
+
 
       {/* ROUTES */}
       <Routes>
@@ -42,5 +58,10 @@ function App() {
     </div>
   );
 }
+
+
+
+
+
 
 export default App;

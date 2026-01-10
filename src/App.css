@@ -1,67 +1,82 @@
+/* =========================
+   DEFAULT REACT STYLES
+========================= */
+
 .App-logo {
-    height: 40vmin;
-    pointer-events: none;
+  height: 40vmin;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
 .App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+  background-color: #0f0f10;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-link {
-    color: #61dafb;
+  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
+/* =========================
+   GLOBAL FULL SCREEN FIX
+========================= */
 
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
+/* =========================
+   🔥 SAFE EMERGENT HIDE
+   (NO IFRAME BREAKING)
+========================= */
 
-
-
-
-
-
-
-/* 🔥 FORCE HIDE EMERGENT BRANDING */
 a[href*="emergent"],
 div[class*="emergent"],
-span[class*="emergent"],
-iframe[src*="emergent"],
-iframe {
+span[class*="emergent"] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
-  height: 0 !important;
-  width: 0 !important;
-  max-height: 0 !important;
-  max-width: 0 !important;
-  overflow: hidden !important;
 }
 
-/* 🔥 FIX FIXED OVERLAY (bottom watermark type) */
-body::after,
-body::before {
-  display: none !important;
-  content: none !important;
+/* ❌ DO NOT TOUCH IFRAME */
+/* ❌ DO NOT TOUCH body::before / after */
+
+/* =========================
+   SCROLLBAR OPTIONAL
+========================= */
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
