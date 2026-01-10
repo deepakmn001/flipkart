@@ -1,67 +1,48 @@
 import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
-
+import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import CategoryBar from "./components/CategoryBar";
 import HeroBanner from "./components/HeroBanner";
 import DealsSection from "./components/DealsSection";
 
-
 import ProductDetail from "./pages/ProductDetail";
 import Address from "./pages/Address";
 import Payment from "./pages/Payment";
 import OrderSummary from "./pages/OrderSummary";
-
+import ScrollToTop from "./components/ScrollToTop"; 
 function App() {
-  const location = useLocation();
-
-  const hideHeaderRoutes = [
-    "/product",
-    "/address",
-    "/payment",
-    "/order-summary",
-  ];
-
-  const hideHeader = hideHeaderRoutes.some(route =>
-    location.pathname.startsWith(route)
-  );
-
   return (
     <div className="App min-h-screen bg-gray-100 flex flex-col">
+ {/* 🔥 SCROLL FIX */}
+      <ScrollToTop />
 
-    {/* ✅ HEADER ONLY ON HOME */}
-{!hideHeader && <Header />}
+      {/* ✅ SAME HEADER EVERY PAGE */}
+      <Header />
 
-
-      {/* ROUTES */}
       <Routes>
-        {/* 🏠 HOME PAGE */}
+        {/* 🏠 HOME */}
         <Route
           path="/"
           element={
             <>
-              <CategoryBar />   {/* ✅ SIRF HOME */}
+              <CategoryBar />
               <HeroBanner />
               <DealsSection />
             </>
           }
         />
 
-        {/* ❌ NO CATEGORY BAR BELOW */}
+        {/* 📦 PRODUCT */}
         <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/address" element={<Address />} />
-        <Route path="/payment" element={<Payment />} />
-        <Route path="/order-summary" element={<OrderSummary />} />
-      </Routes>
 
+        {/* CHECKOUT */}
+        <Route path="/address" element={<Address />} />
+        <Route path="/order-summary" element={<OrderSummary />} />
+        <Route path="/payment" element={<Payment />} />
+      </Routes>
     </div>
   );
 }
-
-
-
-
-
 
 export default App;

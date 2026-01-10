@@ -10,6 +10,7 @@ import returns from "../assets/return.png";
 import nocost from "../assets/nocost.png";
 import plusAssured from "../assets/assured.png";
 import flipkarticon from "../assets/flipkart.png";
+import flipkartLogo from "../assets/flipkart.png";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -18,7 +19,7 @@ const ProductDetail = () => {
 
   const [emblaRef] = useEmblaCarousel(
     { loop: true },
-    [Autoplay({ delay: 5000, stopOnInteraction: false })]
+    [Autoplay({ delay: 3000, stopOnInteraction: false })]
   );
 
   if (!product) return null;
@@ -28,13 +29,8 @@ const ProductDetail = () => {
   return (
     <div className="bg-[#f1f3f6] min-h-screen pb-[56px]">
 
-      {/* 🔵 TOP BAR */}
-      <div className="sticky top-0 z-50 bg-[#2874f0] flex items-center gap-2 px-3 h-[48px] text-white">
-        <button onClick={() => navigate(-1)}>
-          <ChevronLeft />
-        </button>
-        <span className="font-semibold text-[16px]">Flipkart</span>
-      </div>
+   
+
 
       {/* 🖼 IMAGE SLIDER */}
       <div className="bg-white">

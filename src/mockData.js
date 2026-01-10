@@ -3,9 +3,11 @@ export const products = [
     id: 1,
     name: "MILTON Euroline Combo Set Go Electro Stainless Steel Electric Kettle, 1.5 Litres, Silver And Flip Lid Thermosteel Hot Or Cold Stainless Steel Water Bottle With Jacket, 1 Litre, Silver, 1500 Watts",
     image: "https://m.media-amazon.com/images/I/71TKAx1ePFL._SL1500_.jpg",
-    images: [                     // detail page slider
-    "/products/milton1.png",
+    images: [    
+         "https://m.media-amazon.com/images/I/71TKAx1ePFL._SL1500_.jpg",                 // detail page slider
+   
     "/products/milton2.png",
+     "/products/milton1.png",
     "/products/milton3.png",
     "https://m.media-amazon.com/images/I/71TKAx1ePFL._SL1500_.jpg",
   ],

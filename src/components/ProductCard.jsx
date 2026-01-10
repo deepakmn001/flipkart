@@ -1,6 +1,7 @@
 import React from "react";
 import { Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import assured from "../assets/assure.png";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
@@ -59,9 +60,12 @@ const ProductCard = ({ product }) => {
           <span className="text-[14px] font-bold">
             ₹{product.discountedPrice}
           </span>
-          <span className="text-[10px] bg-[#2874f0] text-white px-[4px] rounded">
-            Assured
-          </span>
+          <img
+  src={assured}
+  alt="Flipkart Assured"
+  className="h-[38px] w-auto"
+/>
+
         </div>
 
         {/* RATING */}
