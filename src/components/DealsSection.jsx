@@ -26,12 +26,12 @@ const DealsSection = () => {
   return (
     <section className="bg-white mt-2">
       {/* HEADER */}
-      <div className="flex items-center justify-between px-3 py-3 border-b">
-        <h2 className="text-sm font-bold text-[#2874f0]">
+      <div className="flex items-center justify-between px-[12px] py-[12px] border-b">
+        <h2 className="text-[14px] font-bold text-[#2874f0]">
           Deals of the Day
         </h2>
 
-        <div className="flex items-center gap-2 text-xs">
+        <div className="flex items-center gap-2 text-[12px]">
           <Clock size={14} />
           <span>
             {String(timeLeft.minutes).padStart(2, "0")}:
@@ -43,13 +43,12 @@ const DealsSection = () => {
         </div>
       </div>
 
-      {/* 🔥 PRODUCTS — EXACT FLIPKART STYLE */}
-      <div className="grid grid-cols-2 gap-[6px] px-[6px] py-2">
-  {products.map((product) => (
-    <ProductCard key={product.id} product={product} />
-  ))}
-</div>
-
+      {/* 🔥 PRODUCTS GRID — FLIPKART EXACT */}
+      <div className="grid grid-cols-2 gap-[8px] px-[12px] py-[12px] justify-items-center">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </section>
   );
 };

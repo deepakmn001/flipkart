@@ -10,32 +10,34 @@ const ProductCard = ({ product }) => {
       onClick={() => navigate(`/product/${product.id}`)}
       className="
         bg-white
-        border border-[#f0f0f0]
-        box-border
         cursor-pointer
-        overflow-hidden
-        relative
-        text-center
         select-none
+        relative
+        overflow-hidden
+        text-left
 
-        w-[202px]
-        h-[341px]
+        box-border
+        border border-[#f0f0f0]
+        p-[12px]
 
-        p-4
+        w-[190px]
+        h-[320px]
+
         font-['Roboto','Helvetica','Arial',sans-serif]
+        text-[#212121]
       "
     >
-      {/* 🖼 IMAGE */}
-      <div className="flex items-center justify-center h-[150px]">
+      {/* 🖼 IMAGE (170×170 EXACT) */}
+      <div className="flex items-center justify-center h-[170px]">
         <img
           src={product.image}
           alt={product.name}
-          className="max-h-[140px] object-contain"
+          className="w-[170px] h-[170px] object-contain"
         />
       </div>
 
       {/* 📦 DETAILS */}
-      <div className="space-y-[4px] text-left">
+      <div className="mt-[6px] space-y-[4px]">
 
         {/* NAME */}
         <p className="text-[12px] leading-[16px] text-[#2874f0] line-clamp-2">
@@ -43,7 +45,7 @@ const ProductCard = ({ product }) => {
         </p>
 
         {/* DISCOUNT */}
-        <div className="flex items-center gap-1 text-[11px]">
+        <div className="flex items-center gap-[4px] text-[11px]">
           <span className="text-green-600 font-semibold">
             {product.discount}% off
           </span>
@@ -53,23 +55,21 @@ const ProductCard = ({ product }) => {
         </div>
 
         {/* PRICE */}
-        <div className="flex items-center gap-2">
-          <span className="text-[15px] font-bold text-[#212121]">
+        <div className="flex items-center gap-[6px]">
+          <span className="text-[14px] font-bold">
             ₹{product.discountedPrice}
           </span>
-
-          <span className="text-[10px] bg-[#2874f0] text-white px-1 rounded">
+          <span className="text-[10px] bg-[#2874f0] text-white px-[4px] rounded">
             Assured
           </span>
         </div>
 
         {/* RATING */}
-        <div className="flex items-center gap-1">
-          <span className="flex items-center gap-[2px] bg-green-600 text-white text-[10px] px-1 rounded">
+        <div className="flex items-center gap-[6px]">
+          <span className="flex items-center gap-[2px] bg-green-600 text-white text-[10px] px-[4px] rounded">
             {product.rating}
             <Star size={10} fill="white" />
           </span>
-
           <span className="text-[10px] text-gray-500">
             {product.ratingCount} Ratings
           </span>

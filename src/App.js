@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import CategoryBar from "./components/CategoryBar";
 import HeroBanner from "./components/HeroBanner";
 import DealsSection from "./components/DealsSection";
-import Footer from "./components/Footer";
+
 
 import ProductDetail from "./pages/ProductDetail";
 import Address from "./pages/Address";
@@ -39,8 +39,6 @@ function App() {
         <Route path="/order-summary" element={<OrderSummary />} />
       </Routes>
 
-      {/* COMMON FOOTER */}
-      <Footer />
     </div>
   );
 }

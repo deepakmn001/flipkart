@@ -17,21 +17,24 @@ const OrderSummary = () => {
   const savings = product.originalPrice - product.discountedPrice;
 
   return (
-    <div className="min-h-screen bg-[#f5f7fa] flex flex-col items-center">
+    <div className="min-h-screen bg-[#f1f3f6] flex flex-col items-center">
 
       {/* 🔵 HEADER */}
       <div className="w-full bg-white border-b">
-        <div className="max-w-[420px] mx-auto px-4 py-3">
-          <div className="flex items-center gap-3">
+        <div className="max-w-[412px] mx-auto px-[12px] py-[12px]">
+          <div className="flex items-center gap-2">
             <button
               onClick={() => navigate(-1)}
-              className="text-lg font-semibold"
+              className="text-[18px] font-semibold"
             >
               ←
             </button>
-            <h1 className="text-base font-semibold">Order Summary</h1>
+            <h1 className="text-[14px] font-semibold text-[#212121]">
+              Order Summary
+            </h1>
           </div>
 
+          {/* STEPS */}
           <div className="flex justify-between text-[11px] text-gray-400 mt-2">
             <span>1 Address</span>
             <span className="text-[#2874f0] font-semibold">
@@ -44,50 +47,51 @@ const OrderSummary = () => {
 
       {/* 🔽 CONTENT */}
       <div className="flex-1 w-full">
-        <div className="max-w-[420px] mx-auto px-3 py-3 space-y-3">
+        <div className="max-w-[412px] mx-auto px-[12px] py-3 space-y-3">
 
           {/* 📍 DELIVERY ADDRESS */}
-          <div className="bg-white p-3 rounded">
-            <p className="text-xs font-semibold mb-1">Delivered to:</p>
-            <p className="text-xs text-gray-600 leading-snug">
+          <div className="bg-white p-[12px]">
+            <p className="text-[12px] font-semibold mb-1 text-[#212121]">
+              Delivered to:
+            </p>
+            <p className="text-[12px] text-gray-600 leading-[16px]">
               {address.name}, {address.area}, {address.city},{" "}
               {address.state} - {address.pincode}
             </p>
           </div>
 
-          {/* 🛒 PRODUCT CARD */}
-          <div className="bg-white p-3 rounded flex gap-3">
-
-            {/* LEFT */}
-            <div className="flex flex-col items-center w-20">
+          {/* 🛒 PRODUCT ROW (381px × ~75px) */}
+          <div className="bg-white p-[12px] flex gap-3 items-center">
+            {/* IMAGE */}
+            <div className="w-[60px] h-[60px] flex items-center justify-center">
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-20 h-20 object-contain"
-              />
-              <img
-                src={plusAssured}
-                alt="Flipkart Assured"
-                className="h-4 mt-1"
+                className="max-h-[60px] object-contain"
               />
             </div>
 
-            {/* RIGHT */}
+            {/* DETAILS */}
             <div className="flex-1">
-              <p className="text-xs font-medium leading-snug line-clamp-2">
+              <p className="text-[12px] leading-[16px] text-[#212121] line-clamp-2">
                 {product.name}
               </p>
 
-              <p className="text-xs text-green-600 font-semibold mt-1">
-                {product.discount}% off
-              </p>
+              <img
+                src={plusAssured}
+                alt="Assured"
+                className="h-[14px] mt-1"
+              />
 
               <div className="flex items-center gap-2 mt-1">
-                <span className="font-bold text-sm">
-                  ₹{product.discountedPrice}
+                <span className="text-green-600 text-[12px] font-semibold">
+                  {product.discount}% off
                 </span>
-                <span className="line-through text-gray-400 text-xs">
+                <span className="line-through text-gray-400 text-[12px]">
                   ₹{product.originalPrice}
+                </span>
+                <span className="font-semibold text-[14px]">
+                  ₹{product.discountedPrice}
                 </span>
               </div>
 
@@ -97,28 +101,30 @@ const OrderSummary = () => {
             </div>
           </div>
 
-          {/* 💰 PRICE DETAILS */}
-          <div className="bg-white p-3 rounded">
-            <p className="text-sm font-semibold mb-2">Price Details</p>
+          {/* 💰 PRICE DETAILS (386px × ~189px) */}
+          <div className="bg-white p-[12px]">
+            <p className="text-[13px] font-semibold mb-2">
+              Price Details
+            </p>
 
-            <div className="flex justify-between text-xs mb-1">
+            <div className="flex justify-between text-[12px] mb-1">
               <span>Price (1 item)</span>
               <span>₹{product.originalPrice}</span>
             </div>
 
-            <div className="flex justify-between text-xs mb-1 text-green-600">
+            <div className="flex justify-between text-[12px] mb-1 text-green-600">
               <span>Discount</span>
               <span>-₹{savings}</span>
             </div>
 
-            <div className="flex justify-between text-xs mb-1">
+            <div className="flex justify-between text-[12px] mb-1">
               <span>Delivery Charges</span>
-              <span className="text-green-600">FREE</span>
+              <span className="text-green-600">FREE Delivery</span>
             </div>
 
             <hr className="my-2" />
 
-            <div className="flex justify-between text-sm font-semibold">
+            <div className="flex justify-between text-[13px] font-semibold">
               <span>Total Amount</span>
               <span>₹{product.discountedPrice}</span>
             </div>
@@ -129,31 +135,30 @@ const OrderSummary = () => {
           </div>
 
           {/* 🔒 TRUST */}
-          <div className="bg-white p-3 rounded flex justify-center">
+          <div className="bg-white p-[12px] flex justify-center">
             <img
               src={trustBadge}
               alt="Safe and secure payments"
-              className="h-7 object-contain"
+              className="h-[28px]"
             />
           </div>
 
         </div>
       </div>
 
-      {/* 🟠 CONTINUE BUTTON */}
+      {/* 🟠 CONTINUE BUTTON (56px height) */}
       <div className="w-full bg-white border-t sticky bottom-0">
-        <div className="max-w-[420px] mx-auto p-3">
+        <div className="max-w-[412px] mx-auto p-[12px]">
           <button
             onClick={() =>
               navigate("/payment", { state: { product, address } })
             }
-            className="w-full bg-[#fb641b] text-white py-3 text-sm font-semibold rounded"
+            className="w-full h-[48px] bg-[#fb641b] text-white text-[14px] font-semibold rounded"
           >
             Continue
           </button>
         </div>
       </div>
-
     </div>
   );
 };
