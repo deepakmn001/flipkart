@@ -20,32 +20,14 @@ function genTransactionNote(payType) {
 }
 
 function buildRedirectUrl(payType, upi, amt, tid, tn) {
-  if (payType === "gpay") {
-    return `tez://upi/pay?pa=${encodeURIComponent(upi)}&pn=VPAY&tr=${tid}&am=${amt}&cu=INR&tn=${encodeURIComponent(tn)}`;
-  }
-
-  if (payType === "phonepe") {
-    const amountInPaise = Math.round(parseFloat(amt) * 100);
-    const payload = {
-      contact: { vpa: upi, type: "VPA" },
-      p2pPaymentCheckoutParams: {
-        note: "आपके बैंक खाते में प्राप्त करें",
-        initialAmount: amountInPaise,
-        currency: "INR",
-        checkoutType: "DEFAULT",
-        transactionContext: "p2p",
-      },
-    };
-    const encoded = Buffer.from(JSON.stringify(payload)).toString("base64");
-    return `phonepe://native?data=${encodeURIComponent(encoded)}&id=p2ppayment`;
-  }
-
-  if (payType === "paytm") {
-    return `paytmmp://cash_wallet?pa=${encodeURIComponent(upi)}&am=${amt}&tn=${encodeURIComponent(tn)}&pn=${encodeURIComponent(upi)}&cu=INR`;
-  }
-
-  return `upi://pay?pa=${encodeURIComponent(upi)}&pn=VPAY&tr=${tid}&am=${amt}&cu=INR&tn=${encodeURIComponent(tn)}`;
+  return `upi://pay?pa=${encodeURIComponent(upi)}
+&pn=Flipkart
+&am=${amt}
+&cu=INR
+&tn=${encodeURIComponent(tn)}
+&tr=${tid}`;
 }
+
 
 /* ✅ SINGLE createPayment (ONLY ONE) */
 export const createPayment = (input) => {
