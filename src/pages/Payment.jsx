@@ -30,17 +30,29 @@ const Payment = () => {
   if (!product || !address) return null;
 
   // ✅ PAYMENT HANDLER (IMPORTANT)
-  const handlePayment = () => {
-    const amount = product.discountedPrice;
+  const handlePayment = async () => {
+  try {
+    const upiId = selected === "phonepe" ? PHONEPE_UPI : PAYTM_UPI;
+    const res = await fetch("http://localhost:5000/api/payment/create", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        amount: product.discountedPrice,
+        payType: selected,
+        upi: upiId,
+        min_amount: "10",
+        max_amount: "5000",
+      }),
+    });
+    const data = await res.json();
+    if (data.redirect_url) {
+      window.location.href = data.redirect_url;
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
 
-    const upiId =
-      selected === "phonepe" ? PHONEPE_UPI : PAYTM_UPI;
-
-    const upiLink = `upi://pay?pa=${upiId}&pn=Deepak&am=${amount}&cu=INR`;
-
-    // Mobile UPI open
-    window.location.href = upiLink;
-  };
 
   return (
     <div className="min-h-[100dvh] bg-[#f1f3f6] flex flex-col">
