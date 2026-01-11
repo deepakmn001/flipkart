@@ -24,9 +24,32 @@ const Address = () => {
     return <div className="p-6 text-center">No product selected</div>;
   }
 
+  /* ✅ SAVE ADDRESS FUNCTION */
+ const handleSaveAddress = async () => {
+  try {
+    const res = await fetch("http://localhost:5000/api/address", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      navigate("/order-summary", {
+        state: { product, address: data.address }, // ✅ FIX HERE
+      });
+    }
+  } catch (err) {
+    alert("Failed to save address");
+    console.error(err);
+  }
+};
+
+
   return (
     <div className="min-h-screen bg-[#f1f3f6] pb-[80px]">
-      {/* 🔵 HEADER */}
+      {/* HEADER */}
       <div className="bg-white border-b px-3 py-3 flex items-center gap-2">
         <button onClick={() => navigate(-1)}>
           <ChevronLeft />
@@ -34,7 +57,7 @@ const Address = () => {
         <h1 className="text-sm font-semibold">Add delivery address</h1>
       </div>
 
-      {/* 🔢 STEPS */}
+      {/* STEPS */}
       <div className="bg-white px-4 py-3 border-b">
         <div className="flex items-center justify-between text-xs">
           <span className="text-[#2874f0] font-semibold">
@@ -49,42 +72,15 @@ const Address = () => {
         </div>
       </div>
 
-      {/* 📝 FORM */}
+      {/* FORM */}
       <div className="px-4 py-4 space-y-4">
-        <input
-          name="name"
-          placeholder="Full Name *"
-          className="checkout-input"
-          onChange={handleChange}
-        />
-
-        <input
-          name="mobile"
-          placeholder="Mobile number *"
-          className="checkout-input"
-          onChange={handleChange}
-        />
-
-        <input
-          name="pincode"
-          placeholder="Pincode *"
-          className="checkout-input"
-          onChange={handleChange}
-        />
+        <input name="name" placeholder="Full Name *" className="checkout-input" onChange={handleChange} />
+        <input name="mobile" placeholder="Mobile number *" className="checkout-input" onChange={handleChange} />
+        <input name="pincode" placeholder="Pincode *" className="checkout-input" onChange={handleChange} />
 
         <div className="flex gap-3">
-          <input
-            name="city"
-            placeholder="City *"
-            className="checkout-input flex-1"
-            onChange={handleChange}
-          />
-
-          <select
-            name="state"
-            className="checkout-input flex-1"
-            onChange={handleChange}
-          >
+          <input name="city" placeholder="City *" className="checkout-input flex-1" onChange={handleChange} />
+          <select name="state" className="checkout-input flex-1" onChange={handleChange}>
             <option value="">State *</option>
             <option>Andhra Pradesh</option>
             <option>Delhi</option>
@@ -93,29 +89,14 @@ const Address = () => {
           </select>
         </div>
 
-        <input
-          name="house"
-          placeholder="House No., Building Name *"
-          className="checkout-input"
-          onChange={handleChange}
-        />
-
-        <input
-          name="area"
-          placeholder="Road name, Area, Colony *"
-          className="checkout-input"
-          onChange={handleChange}
-        />
+        <input name="house" placeholder="House No., Building Name *" className="checkout-input" onChange={handleChange} />
+        <input name="area" placeholder="Road name, Area, Colony *" className="checkout-input" onChange={handleChange} />
       </div>
 
-      {/* 🟠 FIXED SAVE BUTTON */}
+      {/* SAVE BUTTON */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4">
         <button
-          onClick={() =>
-            navigate("/order-summary", {
-              state: { product, address: form },
-            })
-          }
+          onClick={handleSaveAddress}
           className="w-full bg-[#fb641b] text-white py-3 rounded-sm font-semibold text-base active:scale-95"
         >
           Save Address

@@ -1,28 +1,27 @@
 import express from "express";
-import Razorpay from "razorpay";
+import mongoose from "mongoose";
 import cors from "cors";
+import dotenv from "dotenv";
+import addressRoutes from "./routes/addressRoutes.js";
+
+dotenv.config();
 
 const app = express();
+
+// middleware
 app.use(cors());
 app.use(express.json());
 
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_KEY_SECRET,
-});
+// routes
+app.use("/api/address", addressRoutes);
 
-// CREATE ORDER
-app.post("/create-order", async (req, res) => {
-  const { amount } = req.body;
+// db connect
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch((err) => console.error(err));
 
-  const order = await razorpay.orders.create({
-    amount: amount * 100, // rupees → paise
-    currency: "INR",
-  });
-
-  res.json(order);
-});
-
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
-});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () =>
+  console.log(`🚀 Server running on port ${PORT}`)
+);

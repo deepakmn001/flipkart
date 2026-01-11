@@ -21,9 +21,26 @@ const Payment = () => {
   const product = state?.product;
   const address = state?.address;
 
+  // 👉 SAME UPI ID (agar same account me payment chahiye)
+  const PHONEPE_UPI = "paytm.s202o2z@pty";
+  const PAYTM_UPI = "paytm.s202o2z@pty";
+
   const [selected, setSelected] = useState("phonepe");
 
   if (!product || !address) return null;
+
+  // ✅ PAYMENT HANDLER (IMPORTANT)
+  const handlePayment = () => {
+    const amount = product.discountedPrice;
+
+    const upiId =
+      selected === "phonepe" ? PHONEPE_UPI : PAYTM_UPI;
+
+    const upiLink = `upi://pay?pa=${upiId}&pn=Deepak&am=${amount}&cu=INR`;
+
+    // Mobile UPI open
+    window.location.href = upiLink;
+  };
 
   return (
     <div className="min-h-[100dvh] bg-[#f1f3f6] flex flex-col">
@@ -42,16 +59,14 @@ const Payment = () => {
         </div>
       </div>
 
-   {/* 🟡 OFFER BANNER */}
-<div className="bg-white mt-2 px-3 py-3">
-  <img
-    src={offerBanner}
-    alt="Offer Banner"
-    className="w-full h-[72px] object-cover rounded"
-  />
-</div>
-
-  
+      {/* 🟡 OFFER BANNER */}
+      <div className="bg-white mt-2 px-3 py-3">
+        <img
+          src={offerBanner}
+          alt="Offer Banner"
+          className="w-full h-[72px] object-cover rounded"
+        />
+      </div>
 
       {/* ⏰ TIMER */}
       <div className="bg-white px-3 py-2 text-center text-sm">
@@ -91,15 +106,14 @@ const Payment = () => {
         />
       </div>
 
-      {/* 🔒 TRUST STRIP (SINGLE IMAGE) */}
-<div className="bg-white mt-3 px-3 py-9">
-  <img
-    src={trustStrip}
-    alt="Secure & Authentic Payments"
-    className="w-full h-[194px] object-contain"
-  />
-</div>
-
+      {/* 🔒 TRUST STRIP */}
+      <div className="bg-white mt-3 px-3 py-9">
+        <img
+          src={trustStrip}
+          alt="Secure & Authentic Payments"
+          className="w-full h-[194px] object-contain"
+        />
+      </div>
 
       {/* 💳 PAYMENT PROVIDERS */}
       <div className="bg-white px-3 py-3 border-t">
@@ -112,7 +126,7 @@ const Payment = () => {
         </div>
       </div>
 
-      {/* 🟠 BOTTOM BAR (NORMAL FLOW) */}
+      {/* 🟠 BOTTOM BAR */}
       <div className="mt-auto bg-white border-t px-3 py-2 flex items-center">
         <div className="flex-1">
           <p className="text-[11px] line-through text-gray-400">
@@ -123,7 +137,10 @@ const Payment = () => {
           </p>
         </div>
 
-        <button className="bg-[#fb641b] text-white px-8 py-2 rounded text-sm font-semibold">
+        <button
+          onClick={handlePayment}
+          className="bg-[#fb641b] text-white px-8 py-2 rounded text-sm font-semibold"
+        >
           Continue
         </button>
       </div>
