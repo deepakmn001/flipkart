@@ -22,8 +22,8 @@ const Payment = () => {
   const address = state?.address;
 
   // 👉 SAME UPI ID (agar same account me payment chahiye)
-  const PHONEPE_UPI = "paytm.s202o2z@pty";
-  const PAYTM_UPI = "paytm.s202o2z@pty";
+  const PHONEPE_UPI = "muskan3838@ptyes";
+  const PAYTM_UPI = "muskan3838@ptyes";
 
   const [selected, setSelected] = useState("phonepe");
 
