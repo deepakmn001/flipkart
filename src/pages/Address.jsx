@@ -24,29 +24,28 @@ const Address = () => {
     return <div className="p-6 text-center">No product selected</div>;
   }
 
-  /* ✅ SAVE ADDRESS FUNCTION */
- const handleSaveAddress = async () => {
-  try {
-    const res = await fetch("http://localhost:5000/api/address", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
-
-    const data = await res.json();
-
-    if (data.success) {
-      navigate("/order-summary", {
-        state: { product, address: data.address }, // ✅ FIX HERE
-      });
+  //TEMPORARY FRONTEND-ONLY SAVE
+  const handleSaveAddress = () => {
+    if (
+      !form.name ||
+      !form.mobile ||
+      !form.pincode ||
+      !form.city ||
+      !form.state ||
+      !form.house ||
+      !form.area
+    ) {
+      alert("Please fill all required fields");
+      return;
     }
-  } catch (err) {
-    alert("Failed to save address");
-    console.error(err);
-  }
-};
 
-
+navigate("/order-summary", {
+      state: {
+        product,
+        address: form,
+      },
+    });
+  };
   return (
     <div className="min-h-screen bg-[#f1f3f6] pb-[80px]">
       {/* HEADER */}
