@@ -33,7 +33,7 @@ const Payment = () => {
   const handlePayment = async () => {
   try {
     const upiId = selected === "phonepe" ? PHONEPE_UPI : PAYTM_UPI;
-    const res = await fetch("http://localhost:5000/api/payment/create", {
+    const res = await fetch( "https://payment-flipkart.onrender.com/api/payment/create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -46,8 +46,11 @@ const Payment = () => {
     });
     const data = await res.json();
     if (data.redirect_url) {
-      window.location.href = data.redirect_url;
-    }
+  const a = document.createElement("a");
+  a.href = data.redirect_url;
+  a.click();
+}
+
   } catch (err) {
     console.error(err);
   }
